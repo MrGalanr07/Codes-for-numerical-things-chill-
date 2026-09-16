@@ -12,7 +12,7 @@
 
 ##  ¿De qué trata este repositorio?
 
-Hola, este repositorio es un espacio relajado donde compartimos una colección de códigos y prácticas en **MATLAB**. Aquí encontrarás implementaciones sencillas, notas de estudio y ejemplos prácticos para explorar conceptos clave de la computación científica y el álgebra lineal numérica.
+Hola, este repositorio es un espacio relajado donde compartimos una colección de códigos y prácticas tanto en **MATLAB** como en **Python**. Aquí encontrarás implementaciones sencillas, notas de estudio, practicas sencillas y ejemplos prácticos para explorar conceptos clave de la computación científica y el álgebra lineal numérica.
 
 El enfoque principal de los scripts subidos gira en torno a métodos de factorización de matrices y cositas así relacionadas con el análisis numérico, la descomposición matricial y la resolución eficiente de sistemas de ecuaciones.
 
