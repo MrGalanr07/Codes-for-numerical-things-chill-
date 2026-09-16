@@ -1,0 +1,80 @@
+% Cada vector v_j se guarda como una entrada de una celda: V{j}
+clc
+clear all
+close all
+
+
+% Datos de entrada como celda de vectores
+
+V = { [1; -1; 1], [1; 0; 1], [1; 1; 2] };   % podemos agregar o quitar vectores libremente
+n = length(V);       % número de vectores 
+
+M = [V{1,1}, V{1,2}, V{1,3}];
+
+
+% Con esto verificamos que los vectores son LI. Si el rang(M) es menor que el número de vectores, entonces no son LI
+
+if rank(M) < n
+
+    error('Los vectores no son LI (rank(A) = %d < %d).', rank(m), n); 
+
+end
+
+ORT = cell(1, n);      % aquí guardaremos los vectores ortonormales
+
+e_1 = V{1, 1}/norm(V{1, 1});
+
+ORT{1, 1} = e_1;
+
+for j = 2:n
+    v = V{j};                     % vector j-ésimo, se va "limpiando" de la celda
+
+    % Debemos restar j-1 veces 
+
+    for i = 1:j-1
+
+        proj = dot(ORT{i}, v);        % coeficiente de proyección sobre e_i
+        v = v - proj * ORT{i};        % se resta esa componente
+
+    end
+
+    normav = norm(v);
+    
+    ORT{j} = v / normav;            % vector j-ésimo ya ortonormal, u en la fórmula
+
+end
+
+% Resultado
+
+disp('Vectores ortonormales obtenidos:');
+
+for j = 1:n
+
+    fprintf('e_%d = ', j); disp(ORT{j}')
+
+end
+
+%% Gráfica de los vectores originales y los ortonormales
+
+figure(1);
+
+hold on; grid on; axis equal;
+
+origen = [0 0 0];
+
+% --- Vectores originales (v) ---
+for j = 1:n
+    quiver3(origen(1), origen(2), origen(3), ...
+        V{j}(1), V{j}(2), V{j}(3), ...
+        0, "Color", 'b' ,'LineWidth', 2, 'MaxHeadSize', 0.5);
+end
+
+% --- Vectores ortonormales (e) ---
+for j = 1:n
+    quiver3(origen(1), origen(2), origen(3), ...
+        ORT{j}(1), ORT{j}(2), ORT{j}(3), ...
+        0, "Color", 'r','LineWidth', 2, 'MaxHeadSize', 0.5);
+end
+
+view(154, 65);
+hold off;
