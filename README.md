@@ -7,8 +7,6 @@
 **Autores:**
 
 * Andrés Roberto Galán Reséndiz
-* Argenis Daniel Olivares Hernandez
-* Paulina Ramos Reyes
 
 ##  ¿De qué trata este repositorio?
 
